@@ -47,7 +47,7 @@
                                 materialDesign:HintAssist.Hint="Пароль"/>
 
                             <Button
-                                Margin="0, 10"
+                                Margin="5, 10"
                                 Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
                                 Content="Войти"
                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" />
@@ -80,10 +80,56 @@
                     </Grid>  
                 </TabItem>
                 <TabItem
-                    Header="Зарегистрироваться">
-                    <TextBlock
-                    Margin="8"
-                    Text="PrimaryMid Tab 2" />      
+                    Header="Регистрация">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Row="0" Width="300" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <StackPanel>
+                                <TextBox
+                                    Margin="5"
+                                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                    VerticalAlignment="Top"
+                                    TextWrapping="Wrap"
+                                    materialDesign:HintAssist.Hint="ФИО" Cursor="Arrow" />
+                            </StackPanel>
+                            
+                            <StackPanel>
+                                <TextBox
+                                    Margin="5"
+                                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                    VerticalAlignment="Top"
+                                    TextWrapping="Wrap"
+                                    materialDesign:HintAssist.Hint="Почта" Cursor="Arrow" />
+                            </StackPanel>
+
+                            <PasswordBox   
+                                Margin="5"
+                                MaxLength="40"
+                                Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                                materialDesign:HintAssist.Hint="Пароль"/>
+
+                            <Button
+                                Margin="5, 10"
+                                Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
+                                Content="Создать аккаунт"
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1" Orientation="Vertical">
+                            <Border VerticalAlignment="Top" BorderBrush="LightGray" BorderThickness="1" Margin="50, 0"/>
+                            <Button
+                                Margin="10"
+                                HorizontalAlignment="Center"
+                                Style="{StaticResource MaterialDesignFlatLightButton}"
+                                ToolTip="Обезательно для ознакомления"
+                                Content="Привалиа и Конфиденциальность"
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" />
+                        </StackPanel>
+                    </Grid>
                 </TabItem>
             </TabControl>
         </materialDesign:Card>
