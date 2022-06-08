@@ -1,0 +1,621 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище EnglishCoursesModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Authorization">
+          <Key>
+            <PropertyRef Name="id_Auth" />
+          </Key>
+          <Property Name="id_Auth" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="30" />
+          <Property Name="Password" Type="nvarchar" MaxLength="30" />
+          <Property Name="id_Role" Type="int" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="id_Course" />
+          </Key>
+          <Property Name="id_Course" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_Teacher" Type="int" />
+          <Property Name="NumberOfLessons" Type="int" />
+          <Property Name="isDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="id_Lesson" />
+          </Key>
+          <Property Name="id_Lesson" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="int" />
+          <Property Name="Header" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="id_Theme" Type="int" />
+          <Property Name="Lesson_link" Type="nvarchar" MaxLength="300" />
+          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="id_Course" Type="int" />
+          <Property Name="isDelete" Type="bit" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id_Role" />
+          </Key>
+          <Property Name="id_Role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="id_Teacher" />
+          </Key>
+          <Property Name="id_Teacher" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="TeachingExperience" Type="real" />
+          <Property Name="EducationPlace" Type="nvarchar" MaxLength="200" />
+          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="id_Auth" Type="int" />
+        </EntityType>
+        <EntityType Name="Theme">
+          <Key>
+            <PropertyRef Name="id_Theme" />
+          </Key>
+          <Property Name="id_Theme" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id_User" />
+          </Key>
+          <Property Name="id_User" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="Birthday" Type="date" />
+          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="id_Auth" Type="int" />
+        </EntityType>
+        <EntityType Name="UserCourse">
+          <Key>
+            <PropertyRef Name="id_UserCourse" />
+          </Key>
+          <Property Name="id_UserCourse" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_User" Type="int" />
+          <Property Name="id_Course" Type="int" />
+          <Property Name="Progress" Type="int" />
+          <Property Name="isDeleted" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Authorization_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Authorization" Type="Self.Authorization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id_Role" />
+            </Principal>
+            <Dependent Role="Authorization">
+              <PropertyRef Name="id_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Course_Teacher">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="id_Teacher" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="id_Teacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lesson_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="id_Course" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="id_Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lesson_Theme">
+          <End Role="Theme" Type="Self.Theme" Multiplicity="0..1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="id_Theme" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="id_Theme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teacher_Authorization">
+          <End Role="Authorization" Type="Self.Authorization" Multiplicity="0..1" />
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authorization">
+              <PropertyRef Name="id_Auth" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="id_Auth" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Authorization">
+          <End Role="Authorization" Type="Self.Authorization" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authorization">
+              <PropertyRef Name="id_Auth" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="id_Auth" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCourse_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+          <End Role="UserCourse" Type="Self.UserCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="id_Course" />
+            </Principal>
+            <Dependent Role="UserCourse">
+              <PropertyRef Name="id_Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCourse_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserCourse" Type="Self.UserCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="UserCourse">
+              <PropertyRef Name="id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище EnglishCoursesModelContainer">
+          <EntitySet Name="Authorization" EntityType="Self.Authorization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lesson" EntityType="Self.Lesson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Theme" EntityType="Self.Theme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserCourse" EntityType="Self.UserCourse" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Authorization_Role" Association="Self.FK_Authorization_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Authorization" EntitySet="Authorization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Course_Teacher" Association="Self.FK_Course_Teacher">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lesson_Course" Association="Self.FK_Lesson_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Lesson" EntitySet="Lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lesson_Theme" Association="Self.FK_Lesson_Theme">
+            <End Role="Theme" EntitySet="Theme" />
+            <End Role="Lesson" EntitySet="Lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teacher_Authorization" Association="Self.FK_Teacher_Authorization">
+            <End Role="Authorization" EntitySet="Authorization" />
+            <End Role="Teacher" EntitySet="Teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Authorization" Association="Self.FK_User_Authorization">
+            <End Role="Authorization" EntitySet="Authorization" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCourse_Course" Association="Self.FK_UserCourse_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="UserCourse" EntitySet="UserCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCourse_User" Association="Self.FK_UserCourse_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserCourse" EntitySet="UserCourse" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EnglishCoursesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Authorization">
+          <Key>
+            <PropertyRef Name="id_Auth" />
+          </Key>
+          <Property Name="id_Auth" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="id_Role" Type="Int32" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Authorization_Role" FromRole="Authorization" ToRole="Role" />
+          <NavigationProperty Name="Teacher" Relationship="Self.FK_Teacher_Authorization" FromRole="Authorization" ToRole="Teacher" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Authorization" FromRole="Authorization" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="id_Course" />
+          </Key>
+          <Property Name="id_Course" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_Teacher" Type="Int32" />
+          <Property Name="NumberOfLessons" Type="Int32" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="Teacher" Relationship="Self.FK_Course_Teacher" FromRole="Course" ToRole="Teacher" />
+          <NavigationProperty Name="Lesson" Relationship="Self.FK_Lesson_Course" FromRole="Course" ToRole="Lesson" />
+          <NavigationProperty Name="UserCourse" Relationship="Self.FK_UserCourse_Course" FromRole="Course" ToRole="UserCourse" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="id_Lesson" />
+          </Key>
+          <Property Name="id_Lesson" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="Header" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id_Theme" Type="Int32" />
+          <Property Name="Lesson_link" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="id_Course" Type="Int32" />
+          <Property Name="isDelete" Type="Boolean" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_Lesson_Course" FromRole="Lesson" ToRole="Course" />
+          <NavigationProperty Name="Theme" Relationship="Self.FK_Lesson_Theme" FromRole="Lesson" ToRole="Theme" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id_Role" />
+          </Key>
+          <Property Name="id_Role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Authorization" Relationship="Self.FK_Authorization_Role" FromRole="Role" ToRole="Authorization" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="id_Teacher" />
+          </Key>
+          <Property Name="id_Teacher" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TeachingExperience" Type="Single" />
+          <Property Name="EducationPlace" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="id_Auth" Type="Int32" />
+          <NavigationProperty Name="Authorization" Relationship="Self.FK_Teacher_Authorization" FromRole="Teacher" ToRole="Authorization" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_Course_Teacher" FromRole="Teacher" ToRole="Course" />
+        </EntityType>
+        <EntityType Name="Theme">
+          <Key>
+            <PropertyRef Name="id_Theme" />
+          </Key>
+          <Property Name="id_Theme" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Lesson" Relationship="Self.FK_Lesson_Theme" FromRole="Theme" ToRole="Lesson" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id_User" />
+          </Key>
+          <Property Name="id_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="id_Auth" Type="Int32" />
+          <NavigationProperty Name="Authorization" Relationship="Self.FK_User_Authorization" FromRole="User" ToRole="Authorization" />
+          <NavigationProperty Name="UserCourse" Relationship="Self.FK_UserCourse_User" FromRole="User" ToRole="UserCourse" />
+        </EntityType>
+        <EntityType Name="UserCourse">
+          <Key>
+            <PropertyRef Name="id_UserCourse" />
+          </Key>
+          <Property Name="id_UserCourse" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_User" Type="Int32" />
+          <Property Name="id_Course" Type="Int32" />
+          <Property Name="Progress" Type="Int32" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_UserCourse_Course" FromRole="UserCourse" ToRole="Course" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserCourse_User" FromRole="UserCourse" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Authorization_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Authorization" Type="Self.Authorization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id_Role" />
+            </Principal>
+            <Dependent Role="Authorization">
+              <PropertyRef Name="id_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teacher_Authorization">
+          <End Role="Authorization" Type="Self.Authorization" Multiplicity="0..1" />
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authorization">
+              <PropertyRef Name="id_Auth" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="id_Auth" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Authorization">
+          <End Role="Authorization" Type="Self.Authorization" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authorization">
+              <PropertyRef Name="id_Auth" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="id_Auth" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Course_Teacher">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="id_Teacher" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="id_Teacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lesson_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="id_Course" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="id_Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCourse_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+          <End Role="UserCourse" Type="Self.UserCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="id_Course" />
+            </Principal>
+            <Dependent Role="UserCourse">
+              <PropertyRef Name="id_Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lesson_Theme">
+          <End Role="Theme" Type="Self.Theme" Multiplicity="0..1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="id_Theme" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="id_Theme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCourse_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserCourse" Type="Self.UserCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="UserCourse">
+              <PropertyRef Name="id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EnglishCoursesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Authorization" EntityType="Self.Authorization" />
+          <EntitySet Name="Course" EntityType="Self.Course" />
+          <EntitySet Name="Lesson" EntityType="Self.Lesson" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Teacher" EntityType="Self.Teacher" />
+          <EntitySet Name="Theme" EntityType="Self.Theme" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="UserCourse" EntityType="Self.UserCourse" />
+          <AssociationSet Name="FK_Authorization_Role" Association="Self.FK_Authorization_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Authorization" EntitySet="Authorization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teacher_Authorization" Association="Self.FK_Teacher_Authorization">
+            <End Role="Authorization" EntitySet="Authorization" />
+            <End Role="Teacher" EntitySet="Teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Authorization" Association="Self.FK_User_Authorization">
+            <End Role="Authorization" EntitySet="Authorization" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Course_Teacher" Association="Self.FK_Course_Teacher">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lesson_Course" Association="Self.FK_Lesson_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Lesson" EntitySet="Lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCourse_Course" Association="Self.FK_UserCourse_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="UserCourse" EntitySet="UserCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lesson_Theme" Association="Self.FK_Lesson_Theme">
+            <End Role="Theme" EntitySet="Theme" />
+            <End Role="Lesson" EntitySet="Lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCourse_User" Association="Self.FK_UserCourse_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserCourse" EntitySet="UserCourse" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище EnglishCoursesModelContainer" CdmEntityContainer="EnglishCoursesEntities">
+          <EntitySetMapping Name="Authorization">
+            <EntityTypeMapping TypeName="EnglishCoursesModel.Authorization">
+              <MappingFragment StoreEntitySet="Authorization">
+                <ScalarProperty Name="id_Auth" ColumnName="id_Auth" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="id_Role" ColumnName="id_Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Course">
+            <EntityTypeMapping TypeName="EnglishCoursesModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="id_Course" ColumnName="id_Course" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id_Teacher" ColumnName="id_Teacher" />
+                <ScalarProperty Name="NumberOfLessons" ColumnName="NumberOfLessons" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lesson">
+            <EntityTypeMapping TypeName="EnglishCoursesModel.Lesson">
+              <MappingFragment StoreEntitySet="Lesson">
+                <ScalarProperty Name="id_Lesson" ColumnName="id_Lesson" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Header" ColumnName="Header" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="id_Theme" ColumnName="id_Theme" />
+                <ScalarProperty Name="Lesson_link" ColumnName="Lesson_link" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="id_Course" ColumnName="id_Course" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="EnglishCoursesModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="id_Role" ColumnName="id_Role" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="EnglishCoursesModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teacher">
+            <EntityTypeMapping TypeName="EnglishCoursesModel.Teacher">
+              <MappingFragment StoreEntitySet="Teacher">
+                <ScalarProperty Name="id_Teacher" ColumnName="id_Teacher" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="TeachingExperience" ColumnName="TeachingExperience" />
+                <ScalarProperty Name="EducationPlace" ColumnName="EducationPlace" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="id_Auth" ColumnName="id_Auth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Theme">
+            <EntityTypeMapping TypeName="EnglishCoursesModel.Theme">
+              <MappingFragment StoreEntitySet="Theme">
+                <ScalarProperty Name="id_Theme" ColumnName="id_Theme" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="EnglishCoursesModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="id_User" ColumnName="id_User" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="id_Auth" ColumnName="id_Auth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserCourse">
+            <EntityTypeMapping TypeName="EnglishCoursesModel.UserCourse">
+              <MappingFragment StoreEntitySet="UserCourse">
+                <ScalarProperty Name="id_UserCourse" ColumnName="id_UserCourse" />
+                <ScalarProperty Name="id_User" ColumnName="id_User" />
+                <ScalarProperty Name="id_Course" ColumnName="id_Course" />
+                <ScalarProperty Name="Progress" ColumnName="Progress" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
