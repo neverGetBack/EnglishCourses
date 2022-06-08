@@ -23,6 +23,7 @@ namespace EnglishCourse_Core
         public byte[] Image { get; set; }
         public Nullable<int> id_Course { get; set; }
         public Nullable<bool> isDelete { get; set; }
+        public Nullable<bool> IsCompleted { get; set; }
     
         public virtual Course Course { get; set; }
         public virtual Theme Theme { get; set; }
