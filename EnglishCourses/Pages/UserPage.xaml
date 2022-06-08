@@ -1,0 +1,94 @@
+﻿<Page x:Class="EnglishCourses.Pages.UserPage"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EnglishCourses.Pages"
+      mc:Ignorable="d" 
+      Height="550" Width="900"
+      MinHeight="550" MinWidth="900"
+      Title="UserPage"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Grid.Row="0" Margin="20" CornerRadius="20" Width="150" Height="150">
+            <Border.Background>
+                <ImageBrush Stretch="Fill" ImageSource="/MediaResources/IconLogo/LogoNoText.png"/>
+            </Border.Background>
+        </Border>
+
+        <Grid Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Vertical">
+                <TextBlock FontWeight="Bold" FontSize="26" Text="Карпов"/>
+                <TextBlock FontWeight="Bold" FontSize="26" Text="Данил"/>
+                <TextBlock FontWeight="Bold" FontSize="26" Text="Дмитриевич"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="30, 0" Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Width="30" Height="30" Kind="Bookshelf" />
+                    <TextBlock Padding="2" FontSize="20" Text="2"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Width="30" Height="30" Kind="PercentOutline"/>
+                    <TextBlock Padding="2" FontSize="20" Text="25"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <ProgressBar Grid.Row="0" Grid.Column="2" Value="25" Height="8" VerticalAlignment="Bottom" Margin="20, 20"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <Button
+              Margin="0, 10"
+              Width="190"
+              Style="{StaticResource MaterialDesignRaisedDarkButton}"
+              ToolTip="Отредактировать свой профиль"
+              Content="Редактировать"
+              IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+
+            <Button
+              Margin="0, 10"
+              Style="{StaticResource MaterialDesignRaisedButton}"
+              ToolTip="Посмотреть домашние задание"
+              Content="Моя домашка"
+              IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+
+            <Button
+              Margin="0, 10"
+              Width="190"
+              Style="{StaticResource MaterialDesignRaisedDarkButton}"
+              ToolTip="Записаться на новый курс"
+              Content="Новый курс"
+              IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+
+            <Button
+              Margin="0, 10"
+              Style="{StaticResource MaterialDesignRaisedButton}"
+              ToolTip="Выйти из профиля"
+              Content="Выйти"
+              IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+        </StackPanel>
+    </Grid>
+</Page>
