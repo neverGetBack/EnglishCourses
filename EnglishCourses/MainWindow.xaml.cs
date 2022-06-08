@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnglishCourses.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,12 @@ namespace EnglishCourses
         {
             InitializeComponent();
             this.WindowState = WindowState.Maximized;
+        }
+
+        private void СourseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AuthWindow authWindow = new AuthWindow();
+            authWindow.ShowDialog();
         }
     }
 }
