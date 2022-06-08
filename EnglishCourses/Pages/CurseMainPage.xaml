@@ -18,7 +18,12 @@
       ShowsNavigationUI="False">
 
     <Grid>
-        <ListView x:Name="lv_course" Background="Black">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        
+        <ListView Grid.Column="1" x:Name="lv_course" Background="Black">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="3" HorizontalAlignment="Center"/>
