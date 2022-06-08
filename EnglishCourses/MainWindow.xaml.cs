@@ -23,6 +23,7 @@ namespace EnglishCourses
         public MainWindow()
         {
             InitializeComponent();
+            this.WindowState = WindowState.Maximized;
         }
     }
 }
