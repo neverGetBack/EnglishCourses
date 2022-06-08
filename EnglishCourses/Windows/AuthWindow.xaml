@@ -32,7 +32,7 @@
 
                         <StackPanel Grid.Row="0" Width="300" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <StackPanel>
-                                <TextBox
+                                <TextBox x:Name="loginAuth_tb"
                                     Margin="5"
                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                     VerticalAlignment="Top"
@@ -40,17 +40,17 @@
                                     materialDesign:HintAssist.Hint="Почта" Cursor="Arrow" />
                             </StackPanel>
 
-                            <PasswordBox   
+                            <PasswordBox x:Name="passAuth_pb"   
                                 Margin="5"
                                 MaxLength="40"
                                 Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
                                 materialDesign:HintAssist.Hint="Пароль"/>
 
-                            <Button
+                            <Button x:Name="AuthBtn"
                                 Margin="5, 10"
                                 Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
                                 Content="Войти"
-                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" />
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" Click="AuthBtn_Click" />
                         </StackPanel>
 
                         <StackPanel Grid.Row="1" Orientation="Vertical">
@@ -89,16 +89,17 @@
 
                         <StackPanel Grid.Row="0" Width="300" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <StackPanel>
-                                <TextBox
+                                <TextBox x:Name="FIO_tb"
                                     Margin="5"
                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                     VerticalAlignment="Top"
                                     TextWrapping="Wrap"
-                                    materialDesign:HintAssist.Hint="ФИО" Cursor="Arrow" />
+                                    
+                                    materialDesign:HintAssist.Hint="ФИО" Cursor="Arrow" TextChanged="FIO_tb_TextChanged" />
                             </StackPanel>
                             
                             <StackPanel>
-                                <TextBox
+                                <TextBox x:Name="login_tb"
                                     Margin="5"
                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                     VerticalAlignment="Top"
@@ -106,17 +107,17 @@
                                     materialDesign:HintAssist.Hint="Почта" Cursor="Arrow" />
                             </StackPanel>
 
-                            <PasswordBox   
+                            <PasswordBox x:Name="pass_tb"   
                                 Margin="5"
                                 MaxLength="40"
                                 Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
                                 materialDesign:HintAssist.Hint="Пароль"/>
 
-                            <Button
+                            <Button x:Name="registrationBtn"
                                 Margin="5, 10"
                                 Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
                                 Content="Создать аккаунт"
-                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" />
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" Click="registrationBtn_Click" />
                         </StackPanel>
 
                         <StackPanel Grid.Row="1" Orientation="Vertical">

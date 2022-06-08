@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using EnglishCourse_Core;
 namespace EnglishCourses.Windows
 {
     /// <summary>
@@ -19,9 +19,63 @@ namespace EnglishCourses.Windows
     /// </summary>
     public partial class AuthWindow : Window
     {
+        User currentUser;
         public AuthWindow()
         {
             InitializeComponent();
+        }
+
+        private void FIO_tb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string[] fioSplit = FIO_tb.Text.Split(' ');
+            if(fioSplit.Length < 3 || fioSplit[2] == "" )
+            {
+                FIO_tb.BorderBrush = Brushes.Red;
+            }
+            else
+            {
+                FIO_tb.BorderBrush = Brushes.Black;
+            }
+        }
+
+        private void registrationBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(FIO_tb.Text != "" && login_tb.Text != "" && pass_tb.Password != "0")
+            {
+                if (MainFunc.UniqueLogin(login_tb.Text))
+                {
+                   currentUser = MainFunc.Registration(FIO_tb.Text, login_tb.Text, pass_tb.Password);
+                    MessageBox.Show("Пользователь успешно создан!");
+                }
+                else
+                {
+                    MessageBox.Show("Пользователь с такой почтой уже существует");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Заполните все поля!");
+            }
+        }
+
+        private void AuthBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(loginAuth_tb.Text != "" && passAuth_pb.Password != "")
+            {
+                currentUser = MainFunc.Authorization(loginAuth_tb.Text, passAuth_pb.Password);
+                if(currentUser == null)
+                {
+                    MessageBox.Show("Неверная почта или пароль");
+                }
+                else
+                {
+                    MessageBox.Show($"Добро пожаловать, {currentUser.Name}!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Заполните все поля!");
+            }
         }
     }
 }
