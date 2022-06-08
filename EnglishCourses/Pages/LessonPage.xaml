@@ -9,6 +9,7 @@
       Title="LessonPage">
 
     <Grid>
-        
+        <Button Content="Button" HorizontalAlignment="Left" Margin="296,174,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Page>
