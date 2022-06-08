@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnglishCourse_Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,13 @@ namespace EnglishCourses.Pages
     /// </summary>
     public partial class LessonPage : Page
     {
-        public LessonPage()
+        public List<Lesson> lessons;
+        public LessonPage(int idCourse)
         {
             InitializeComponent();
+            lessons = GetDataFromDB.GetLesson().Where(p => p.id_Course == idCourse).ToList();
+            lessonsView.ItemsSource = lessons;
+            this.DataContext = this;
         }
     }
 }

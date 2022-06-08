@@ -19,7 +19,7 @@
     <Grid x:Name="MainGrid" Background="White" Margin="10">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
         
