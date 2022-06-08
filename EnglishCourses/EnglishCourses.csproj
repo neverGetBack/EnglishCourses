@@ -83,6 +83,9 @@
     <Compile Include="Pages\CurseMainPage.xaml.cs">
       <DependentUpon>CurseMainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\UserPage.xaml.cs">
+      <DependentUpon>UserPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AuthWindow.xaml.cs">
       <DependentUpon>AuthWindow.xaml</DependentUpon>
     </Compile>
@@ -103,6 +106,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\CurseMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
