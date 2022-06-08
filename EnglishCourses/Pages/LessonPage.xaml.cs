@@ -29,5 +29,14 @@ namespace EnglishCourses.Pages
             lessonsView.ItemsSource = lessons;
             this.DataContext = this;
         }
+
+        private void lessonsView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var isSelected = lessonsView.SelectedItem as Lesson;
+            if (isSelected != null)
+            {
+                navlessonFrame.NavigationService.Navigate(new LessonInfo(isSelected));
+            }
+        }
     }
 }

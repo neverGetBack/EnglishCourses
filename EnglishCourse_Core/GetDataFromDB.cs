@@ -30,7 +30,7 @@ namespace EnglishCourse_Core
 
         public static List<UserCourse> GetUserCourse()
         {
-            return (List<UserCourse>)bd_connection.connection.UserCourse.ToList().Where(p => p.isDeleted == false);
+            return bd_connection.connection.UserCourse.Where(p => p.isDeleted == false).ToList();
         }
 
         public static List<Course> GetCourse()
@@ -40,7 +40,7 @@ namespace EnglishCourse_Core
 
         public static List<Lesson> GetLesson()
         {
-            return (List<Lesson>)bd_connection.connection.Lesson.ToList().Where(p => p.isDelete == false);
+            return bd_connection.connection.Lesson.Where(p => p.isDelete == false).ToList();
         }
 
         public static List<Theme> GetTheme()

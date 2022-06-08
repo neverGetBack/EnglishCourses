@@ -15,20 +15,26 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <ListView x:Name="lessonsView">
+            <ListView x:Name="lessonsView" SelectionChanged="lessonsView_SelectionChanged">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <UniformGrid  HorizontalAlignment="Center"/>
+                        <UniformGrid  HorizontalAlignment="Left"/>
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
+                        <Grid Background="Gray" Width="25" Height="25">
                             
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Frame x:Name="navlessonFrame">
+                
+            </Frame>
         </Grid>
     </Grid>
         

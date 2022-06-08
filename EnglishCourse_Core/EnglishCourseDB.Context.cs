@@ -29,6 +29,7 @@ namespace EnglishCourse_Core
         public virtual DbSet<Course> Course { get; set; }
         public virtual DbSet<Lesson> Lesson { get; set; }
         public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Teacher> Teacher { get; set; }
         public virtual DbSet<Theme> Theme { get; set; }
         public virtual DbSet<User> User { get; set; }

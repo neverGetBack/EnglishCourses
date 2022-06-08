@@ -11,7 +11,15 @@ namespace EnglishCourse_Core
         public static User Authorization(string login, string password)
         {
             int auth = bd_connection.connection.Authorization.FirstOrDefault(p => p.Login == login && p.Password == password).id_Auth;
-            return bd_connection.connection.User.FirstOrDefault(p => p.id_Auth == auth);
+            if(auth != 0)
+            {
+                return bd_connection.connection.User.FirstOrDefault(p => p.id_Auth == auth);
+            }
+            else
+            {
+                return null;
+            }
+            
         }
 
         public static User Registration(string FIO, string login, string password)

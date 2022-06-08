@@ -27,11 +27,11 @@
             <TextBlock FontSize="26" Text="Выберите подходящий"/>
             <TextBlock FontSize="26" Text="для вас курс"/>
         </StackPanel>
-        
-        <ListView Grid.Column="1" x:Name="lv_course" Background="Black">
+
+        <ListView Grid.Column="1" x:Name="lv_course" SelectionChanged ="lv_course_SelectionChanged"  Background="Black">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid HorizontalAlignment="Center"/>
+                    <UniformGrid Columns="3" HorizontalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
@@ -40,7 +40,8 @@
                         <materialDesign:Card
                             Width="220"
                             HorizontalAlignment="Center"
-                            VerticalAlignment="Center">
+                            VerticalAlignment="Center"
+                            >
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition
@@ -135,11 +136,13 @@
                                 <StackPanel
                                     Grid.Row="5"
                                     HorizontalAlignment="Center">
-                                    <Button
+                                    <Button x:Name="siqnForLesson"
                                         Style="{StaticResource MaterialDesignFlatButton}"
+                                        CommandParameter="{Binding id_Course}"
                                         HorizontalAlignment="Left"
                                         Margin="8 4 8 8"
-                                        Content="Записаться" />
+                                        Content="Записаться"
+                                        Click="siqnForLesson_Click"/>
                                 </StackPanel>
                             </Grid>
                         </materialDesign:Card>

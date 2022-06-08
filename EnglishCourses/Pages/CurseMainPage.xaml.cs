@@ -39,7 +39,22 @@ namespace EnglishCourses.Pages
 
         private void lv_course_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //var isSelected = lv_course.SelectedItem as Course;
+            //if (isSelected != null)
+            //{
+            //    NavigationService.Navigate(new LessonPage(isSelected.id_Course));
+            //}
+        }
 
+        private void siqnForLesson_Click(object sender, RoutedEventArgs e)
+        {
+            var span = sender as Button;
+            var idCourse = span.CommandParameter;
+
+            if (idCourse != null)
+            {
+                NavigationService.Navigate(new LessonPage((int)idCourse));
+            }
         }
     }
 }
