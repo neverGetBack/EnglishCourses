@@ -56,5 +56,10 @@ namespace EnglishCourses.Pages
                 NavigationService.Navigate(new LessonPage((int)idCourse));
             }
         }
+
+        private void GoBackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.GoBack();
+        }
     }
 }

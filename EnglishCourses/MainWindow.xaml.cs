@@ -26,7 +26,7 @@ namespace EnglishCourses
         {
             InitializeComponent();
             this.WindowState = WindowState.Maximized;
-            navFrame.NavigationService.Navigate(new CurseMainPage());
+            navFrame.NavigationService.Navigate(new MainPage());
         }
 
         
