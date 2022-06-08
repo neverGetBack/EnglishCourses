@@ -67,78 +67,78 @@
   <ItemGroup>
     <Compile Include="AddToDB.cs" />
     <Compile Include="Authorization.cs">
-      <DependentUpon>EnglishCourseDB.tt</DependentUpon>
+      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="bd_connection.cs" />
     <Compile Include="Course.cs">
-      <DependentUpon>EnglishCourseDB.tt</DependentUpon>
+      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DeleteFromDB.cs" />
-    <Compile Include="EnglishCourseDB.Context.cs">
+    <Compile Include="EnglishCourseDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EnglishCourseDB.Context.tt</DependentUpon>
+      <DependentUpon>EnglishCourseDBModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="EnglishCourseDB.cs">
+    <Compile Include="EnglishCourseDBModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EnglishCourseDB.tt</DependentUpon>
+      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EnglishCourseDB.Designer.cs">
+    <Compile Include="EnglishCourseDBModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EnglishCourseDB.edmx</DependentUpon>
+      <DependentUpon>EnglishCourseDBModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="GetDataFromDB.cs" />
     <Compile Include="Lesson.cs">
-      <DependentUpon>EnglishCourseDB.tt</DependentUpon>
+      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MainFunc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs">
-      <DependentUpon>EnglishCourseDB.tt</DependentUpon>
+      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
-      <DependentUpon>EnglishCourseDB.tt</DependentUpon>
+      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Teacher.cs">
-      <DependentUpon>EnglishCourseDB.tt</DependentUpon>
+      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Theme.cs">
-      <DependentUpon>EnglishCourseDB.tt</DependentUpon>
+      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>EnglishCourseDB.tt</DependentUpon>
+      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UserCourse.cs">
-      <DependentUpon>EnglishCourseDB.tt</DependentUpon>
+      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="EnglishCourseDB.edmx">
+    <EntityDeploy Include="EnglishCourseDBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EnglishCourseDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>EnglishCourseDBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="EnglishCourseDB.edmx.diagram">
-      <DependentUpon>EnglishCourseDB.edmx</DependentUpon>
+    <None Include="EnglishCourseDBModel.edmx.diagram">
+      <DependentUpon>EnglishCourseDBModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EnglishCourseDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EnglishCourseDB.Context.cs</LastGenOutput>
-      <DependentUpon>EnglishCourseDB.edmx</DependentUpon>
-    </Content>
-    <Content Include="EnglishCourseDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EnglishCourseDB.edmx</DependentUpon>
-      <LastGenOutput>EnglishCourseDB.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="EnglishCourseDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EnglishCourseDBModel.edmx</DependentUpon>
+      <LastGenOutput>EnglishCourseDBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EnglishCourseDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EnglishCourseDBModel.edmx</DependentUpon>
+      <LastGenOutput>EnglishCourseDBModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

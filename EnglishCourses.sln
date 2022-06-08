@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishCourses", "EnglishCourses\EnglishCourses.csproj", "{CB526C48-2D51-4B74-A1E9-D9D799E84F8F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CD448659-566D-4483-A094-D87D34087F58} = {CD448659-566D-4483-A094-D87D34087F58}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishCourse_Core", "EnglishCourse_Core\EnglishCourse_Core.csproj", "{CD448659-566D-4483-A094-D87D34087F58}"
 EndProject

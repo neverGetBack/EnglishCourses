@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6bace330e431441ca705275a40a26bb9" Name="Diagram1">
+      <Diagram DiagramId="5a132ecf19c54b538aad7ec86b29bfce" Name="Diagram1">
         <EntityTypeShape EntityType="EnglishCoursesModel.Authorization" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="EnglishCoursesModel.Course" Width="1.5" PointX="7.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishCoursesModel.Course" Width="1.5" PointX="7.5" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="EnglishCoursesModel.Lesson" Width="1.5" PointX="9.75" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="EnglishCoursesModel.Role" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="EnglishCoursesModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="EnglishCoursesModel.Teacher" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="EnglishCoursesModel.Theme" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EnglishCoursesModel.User" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EnglishCoursesModel.UserCourse" Width="1.5" PointX="9.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishCoursesModel.UserCourse" Width="1.5" PointX="9.75" PointY="7.125" IsExpanded="true" />
         <AssociationConnector Association="EnglishCoursesModel.FK_Authorization_Role" ManuallyRouted="false" />
         <AssociationConnector Association="EnglishCoursesModel.FK_Teacher_Authorization" ManuallyRouted="false" />
         <AssociationConnector Association="EnglishCoursesModel.FK_User_Authorization" ManuallyRouted="false" />

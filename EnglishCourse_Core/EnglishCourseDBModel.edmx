@@ -23,6 +23,7 @@
           <Property Name="id_Teacher" Type="int" />
           <Property Name="NumberOfLessons" Type="int" />
           <Property Name="isDeleted" Type="bit" />
+          <Property Name="Image" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Lesson">
           <Key>
@@ -262,6 +263,7 @@
           <Property Name="id_Teacher" Type="Int32" />
           <Property Name="NumberOfLessons" Type="Int32" />
           <Property Name="isDeleted" Type="Boolean" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Teacher" Relationship="Self.FK_Course_Teacher" FromRole="Course" ToRole="Teacher" />
           <NavigationProperty Name="Lesson" Relationship="Self.FK_Lesson_Course" FromRole="Course" ToRole="Lesson" />
           <NavigationProperty Name="UserCourse" Relationship="Self.FK_UserCourse_Course" FromRole="Course" ToRole="UserCourse" />
@@ -445,7 +447,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="EnglishCoursesEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EnglishCoursesEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Authorization" EntityType="Self.Authorization" />
           <EntitySet Name="Course" EntityType="Self.Course" />
           <EntitySet Name="Lesson" EntityType="Self.Lesson" />
@@ -493,7 +495,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище EnglishCoursesModelContainer" CdmEntityContainer="EnglishCoursesEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище EnglishCoursesModelContainer" CdmEntityContainer="EnglishCoursesEntities1">
           <EntitySetMapping Name="Authorization">
             <EntityTypeMapping TypeName="EnglishCoursesModel.Authorization">
               <MappingFragment StoreEntitySet="Authorization">
@@ -512,6 +514,7 @@
                 <ScalarProperty Name="id_Teacher" ColumnName="id_Teacher" />
                 <ScalarProperty Name="NumberOfLessons" ColumnName="NumberOfLessons" />
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

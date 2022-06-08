@@ -1,0 +1,100 @@
+﻿<Page x:Class="EnglishCourses.CourseMainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal" 
+      TextOptions.TextRenderingMode="Auto"        
+      Background="{DynamicResource MaterialDesignPaper}"
+      FontFamily="{DynamicResource MaterialDesignFont}"
+      xmlns:local="clr-namespace:EnglishCourses"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CourseMainPage">
+
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <ListView x:Name="lv_course" 
+                   
+                  Grid.Row="2" Grid.RowSpan="12"
+                  Grid.Column="1" Grid.ColumnSpan="12"
+                  SelectionChanged="lv_course_SelectionChanged" Background="Black">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="3"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="200">
+                        <!--<TextBlock Background="Black" Foreground="White" >
+                            <Run Text="Уроков: "/>
+                            <Run Text="{Binding NumberOfLessons}"></Run>
+                            <Run Text="{Binding Teacher.Name}"/>
+                        </TextBlock>-->
+                        <materialDesign:Card Padding="1" Margin="8" Width="300" Height="100">
+                            <StackPanel>
+                            <!--<Image Source="{Binding Image}" Width="300" Height="300"/>-->
+                                <TextBlock Text="{Binding Name}" 
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           FontSize="20" 
+                                           Foreground="Black"
+                                       
+                                           TextWrapping="Wrap"/>
+                                <TextBlock>
+                                    <Run Text="{Binding Teacher.Surname}"/>
+                                    <Run Text=" "/>
+                                    <Run Text="{Binding Teacher.Name}"/>
+                                </TextBlock>
+
+                                <TextBlock VerticalAlignment="Bottom">
+                                    <materialDesign:PackIcon Kind="Star" VerticalAlignment="Bottom" />
+                                    <Run Text="5.0 "></Run>
+                                    <materialDesign:PackIcon Kind="HumanMale" />
+                                    <Run Text="198 "/>
+                                    <materialDesign:PackIcon Kind="ClockTimeOne" />
+                                    <Run Text="{Binding NumberOfLessons}"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </materialDesign:Card>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

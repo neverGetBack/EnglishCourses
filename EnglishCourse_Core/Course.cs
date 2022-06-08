@@ -26,6 +26,7 @@ namespace EnglishCourse_Core
         public Nullable<int> id_Teacher { get; set; }
         public Nullable<int> NumberOfLessons { get; set; }
         public Nullable<bool> isDeleted { get; set; }
+        public byte[] Image { get; set; }
     
         public virtual Teacher Teacher { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
