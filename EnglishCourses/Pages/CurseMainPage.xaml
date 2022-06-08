@@ -19,19 +19,55 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Margin="30, 30, 0, 0" Grid.Column="0" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <TextBlock FontSize="26" Text="Выберите подходящий"/>
-            <TextBlock FontSize="26" Text="для вас курс"/>
-        </StackPanel>
+        <Grid Grid.Column="0" Margin="20, 30, 0, 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="6*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBox
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        VerticalAlignment="Top"
+                        Width="250"
+                        Height="50"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto"
+                        materialDesign:HintAssist.Hint="Поиск по курсам"
+                        IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}" />
+                    
+                    <Button
+                    Height="50"
+                    Grid.Column="1"
+                    FontSize="16"
+                    Content="{materialDesign:PackIcon Magnify}"
+                    ToolTip="Icon"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <materialDesign:Badged
+                  Badge="{materialDesign:PackIcon BackupRestore}"
+                  BadgeColorZoneMode="SecondaryMid">        
+                    <Button
+                        Width="100"
+                        Content="Назад"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" />
+                </materialDesign:Badged>
+            </StackPanel>
+        </Grid>
 
         <ListView Grid.Column="1" x:Name="lv_course" SelectionChanged ="lv_course_SelectionChanged"  Background="Black">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="3" HorizontalAlignment="Center"/>
+                    <UniformGrid Columns="2" HorizontalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
