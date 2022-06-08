@@ -31,7 +31,7 @@
 
             <StackPanel Grid.Row="0">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBox
+                    <TextBox x:Name="search_TB"
                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                         VerticalAlignment="Top"
                         Width="250"
@@ -40,7 +40,7 @@
                         TextWrapping="Wrap"
                         VerticalScrollBarVisibility="Auto"
                         materialDesign:HintAssist.Hint="Поиск по курсам"
-                        IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}" />
+                        IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}" TextChanged="search_TB_TextChanged" />
                     
                     <Button
                     Height="50"
@@ -71,8 +71,8 @@
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid HorizontalAlignment="Center">
+                <DataTemplate >
+                    <Grid HorizontalAlignment="Center" >
                         <materialDesign:Card
                             Width="220"
                             HorizontalAlignment="Center"

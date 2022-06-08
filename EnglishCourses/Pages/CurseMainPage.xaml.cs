@@ -61,5 +61,22 @@ namespace EnglishCourses.Pages
         {
             this.NavigationService.GoBack();
         }
+
+        public void Filter()
+        {
+            var filterCourses = courseList;
+
+            if (search_TB.Text != "")
+            {
+                filterCourses = bd_connection.connection.Course.Where(z => (z.Name.Contains(search_TB.Text))).ToList();
+            }
+
+            lv_course.ItemsSource = filterCourses;
+
+        }
+        private void search_TB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Filter();
+        }
     }
 }
