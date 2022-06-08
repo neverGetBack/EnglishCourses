@@ -40,12 +40,10 @@ namespace EnglishCourses
             {
                 CurseMainPage page = new CurseMainPage();
                 NavigationService.Navigate(page);
+                return;
             }
-            else
-            {
-                AuthWindow authWindow = new AuthWindow();
-                authWindow.ShowDialog();
-            }
+            AuthWindow authWindow = new AuthWindow();
+            authWindow.ShowDialog();
         }
     }
 }

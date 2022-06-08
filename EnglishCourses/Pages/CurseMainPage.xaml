@@ -19,14 +19,19 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="30, 30, 0, 0" Grid.Column="0" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock FontSize="26" Text="Выберите подходящий"/>
+            <TextBlock FontSize="26" Text="для вас курс"/>
+        </StackPanel>
         
         <ListView Grid.Column="1" x:Name="lv_course" Background="Black">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="3" HorizontalAlignment="Center"/>
+                    <UniformGrid HorizontalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
