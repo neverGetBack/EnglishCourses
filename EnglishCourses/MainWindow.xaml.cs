@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using EnglishCourses.Pages;
 
 namespace EnglishCourses
 {
@@ -25,12 +26,9 @@ namespace EnglishCourses
         {
             InitializeComponent();
             this.WindowState = WindowState.Maximized;
+            navFrame.NavigationService.Navigate(new MainPage());
         }
 
-        private void СourseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            AuthWindow authWindow = new AuthWindow();
-            authWindow.ShowDialog();
-        }
+        
     }
 }

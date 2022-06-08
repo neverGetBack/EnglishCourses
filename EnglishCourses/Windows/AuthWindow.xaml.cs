@@ -34,7 +34,7 @@ namespace EnglishCourses.Windows
             }
             else
             {
-                FIO_tb.BorderBrush = Brushes.Black;
+                FIO_tb.BorderBrush = new SolidColorBrush(Color.FromRgb(103, 58, 183));
             }
         }
 
@@ -46,6 +46,8 @@ namespace EnglishCourses.Windows
                 {
                    currentUser = MainFunc.Registration(FIO_tb.Text, login_tb.Text, pass_tb.Password);
                     MessageBox.Show("Пользователь успешно создан!");
+                    MainPage.user = currentUser;
+                    this.Close();
                 }
                 else
                 {
@@ -70,6 +72,8 @@ namespace EnglishCourses.Windows
                 else
                 {
                     MessageBox.Show($"Добро пожаловать, {currentUser.Name}!");
+                    MainPage.user = currentUser;
+                    this.Close();
                 }
             }
             else

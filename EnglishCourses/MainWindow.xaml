@@ -13,87 +13,10 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
-        Background="{DynamicResource MaterialDesignPaper}"
+        Background="White"
         FontFamily="{DynamicResource MaterialDesignFont}">
 
-    <Grid x:Name="MainGrid" Background="White" Margin="10">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="3*"/>
-        </Grid.RowDefinitions>
-
-        <Grid x:Name="TopGrid" Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="3*"/>
-            </Grid.ColumnDefinitions>
-
-            <Image Grid.Column="0" Width="200" Height="200" HorizontalAlignment="Left" VerticalAlignment="Center"  Source="/MediaResources/IconLogo/LogoV2.png"/>
-
-            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
-                <Button
-                    Width="160" 
-                    Height="60"
-                    FontSize="24"
-                    Style="{StaticResource MaterialDesignFlatButton}"
-                    ToolTip="Начать свое обучение с нами..."
-                    Content="Обучение"
-                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" />
-
-                <Button
-                    Width="200" 
-                    Height="60"
-                    FontSize="24"
-                    Style="{StaticResource MaterialDesignFlatButton}"
-                    ToolTip="Стать частью нашей команды..."
-                    Content="Преподование"
-                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" />
-
-                <Button
-                    Width="180" 
-                    Height="60"
-                    FontSize="24"
-                    Style="{StaticResource MaterialDesignFlatButton}"
-                    ToolTip="Подробнее о нас..."
-                    Content="Компаниям"
-                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" />
-            </StackPanel>
-        </Grid>
-
-        <Grid Grid.Row="1" x:Name="BotomGrid">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-            <Grid Grid.Column="0" Margin="20" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <StackPanel>
-                    <Label Content="Начни свое" FontSize="46" FontWeight="Bold"/>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="обучение" FontSize="46" FontWeight="Bold" Foreground="YellowGreen"/>
-                        <Label Content="с нами!" FontSize="46" FontWeight="Bold"/>
-                    </StackPanel>
-                    <Grid>
-                        <Button
-                            x:Name="СourseBtn"
-                            Width="200" 
-                            Height="40"
-                            FontSize="16"
-                            Margin="0, 10"
-                            HorizontalAlignment="Left"
-                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                            materialDesign:ButtonAssist.CornerRadius="25"
-                            ToolTip="Записаться на курс"
-                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" Click="СourseBtn_Click">
-                            <TextBlock
-                                Text="Записаться на курс" />
-                        </Button>
-                    </Grid>
-                </StackPanel>
-            </Grid>
-
-            <Image Grid.Column="1" Source="/MediaResources/Image/mainimg.png"/>
-        </Grid>
-
+    <Grid x:Name="MainGrid" Background="White" >
+        <Frame x:Name="navFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

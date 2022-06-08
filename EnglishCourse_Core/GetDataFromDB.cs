@@ -35,7 +35,7 @@ namespace EnglishCourse_Core
 
         public static List<Course> GetCourse()
         {
-            return (List<Course>)bd_connection.connection.Course.ToList().Where(p => p.isDeleted == false);
+            return bd_connection.connection.Course.Where(p => p.isDeleted == false).ToList();
         }
 
         public static List<Lesson> GetLesson()

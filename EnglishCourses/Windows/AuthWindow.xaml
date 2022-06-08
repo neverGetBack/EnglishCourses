@@ -92,6 +92,7 @@
                                 <TextBox x:Name="FIO_tb"
                                     Margin="5"
                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                    
                                     VerticalAlignment="Top"
                                     TextWrapping="Wrap"
                                     
