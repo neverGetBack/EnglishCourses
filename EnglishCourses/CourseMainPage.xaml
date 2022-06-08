@@ -14,85 +14,126 @@
       xmlns:local="clr-namespace:EnglishCourses"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CourseMainPage">
+      Title="CourseMainPage"
+      ShowsNavigationUI="False">
 
-    <Grid >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-
-        <ListView x:Name="lv_course" 
-                   
-                  Grid.Row="2" Grid.RowSpan="12"
-                  Grid.Column="1" Grid.ColumnSpan="12"
-                  SelectionChanged="lv_course_SelectionChanged" Background="Black">
+    <Grid>
+        <ListView x:Name="lv_course" Background="Black">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="3"/>
+                    <UniformGrid Columns="3" HorizontalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="200">
-                        <!--<TextBlock Background="Black" Foreground="White" >
-                            <Run Text="Уроков: "/>
-                            <Run Text="{Binding NumberOfLessons}"></Run>
-                            <Run Text="{Binding Teacher.Name}"/>
-                        </TextBlock>-->
-                        <materialDesign:Card Padding="1" Margin="8" Width="300" Height="100">
-                            <StackPanel>
-                            <!--<Image Source="{Binding Image}" Width="300" Height="300"/>-->
-                                <TextBlock Text="{Binding Name}" 
-                                           HorizontalAlignment="Left"
-                                           VerticalAlignment="Top"
-                                           FontSize="20" 
-                                           Foreground="Black"
-                                       
-                                           TextWrapping="Wrap"/>
-                                <TextBlock>
+                    <Grid HorizontalAlignment="Center">
+                        <materialDesign:Card
+                            Width="220"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition
+                                        Height="140" />
+                                    <RowDefinition
+                                        Height="*" />
+                                    <RowDefinition
+                                        Height="Auto" />
+                                    <RowDefinition
+                                        Height="Auto" />
+                                    <RowDefinition
+                                        Height="Auto" />
+                                    <RowDefinition
+                                        Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Image
+                                    Margin="30, 0"
+                                    Source="/LogoNoText.png"
+                                    Height="140"
+                                    Stretch="UniformToFill" />
+                                <Button
+                                    Grid.Row="0"
+                                    Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    Margin="0 0 16 -20">
+                                    <materialDesign:PackIcon
+                                    Kind="Earth" />
+                                </Button>
+                                <StackPanel
+                                    Grid.Row="1"
+                                    Margin="8 24 8 4">
+                                    <TextBlock
+                                        Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                        Margin="0"
+                                        Text="{Binding Name}"/>
+                                    <Viewbox
+                                        Margin="0 4 0 8"
+                                        Height="16"
+                                        HorizontalAlignment="Left">
+                                        <materialDesign:RatingBar
+                                          Value="3"
+                                          Orientation="Horizontal"
+                                          Foreground="Gold"
+                                          Margin="0" />
+                                    </Viewbox>
+                                </StackPanel>
+                                <Separator
+                                  Grid.Row="2"
+                                  Style="{StaticResource MaterialDesignDarkSeparator}"
+                                  Margin="8 0 8 0" />
+                                <TextBlock
+                                    Grid.Row="3"
+                                    Margin="8 4 8 4"
+                                    Style="{StaticResource MaterialDesignBody2TextBlock}">
                                     <Run Text="{Binding Teacher.Surname}"/>
                                     <Run Text=" "/>
                                     <Run Text="{Binding Teacher.Name}"/>
                                 </TextBlock>
+                                <Grid
+                                    Grid.Row="4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition
+                                        Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
 
-                                <TextBlock VerticalAlignment="Bottom">
-                                    <materialDesign:PackIcon Kind="Star" VerticalAlignment="Bottom" />
-                                    <Run Text="5.0 "></Run>
-                                    <materialDesign:PackIcon Kind="HumanMale" />
-                                    <Run Text="198 "/>
-                                    <materialDesign:PackIcon Kind="ClockTimeOne" />
-                                    <Run Text="{Binding NumberOfLessons}"/>
-                                </TextBlock>
-                            </StackPanel>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="5, 0">
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <materialDesign:PackIcon
+                                                    Grid.Column="0"
+                                                    Kind="Account"
+                                                    VerticalAlignment="Center"/>
+                                            <TextBlock
+                                                    VerticalAlignment="Center"
+                                                    Text="109" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10, 0">
+                                            <materialDesign:PackIcon
+                                                    Grid.Column="0"
+                                                    Kind="BookOpenVariant"
+                                                    VerticalAlignment="Center"/>
+                                            <TextBlock
+                                                    Margin="5, 0"
+                                                    VerticalAlignment="Center"
+                                                    Text="{Binding NumberOfLessons}" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                    
+                                    
+                                </Grid>
+                                <StackPanel
+                                    Grid.Row="5"
+                                    HorizontalAlignment="Center">
+                                    <Button
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        HorizontalAlignment="Left"
+                                        Margin="8 4 8 8"
+                                        Content="Записаться" />
+                                </StackPanel>
+                            </Grid>
                         </materialDesign:Card>
-                    </StackPanel>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

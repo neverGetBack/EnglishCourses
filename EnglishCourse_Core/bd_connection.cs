@@ -8,6 +8,6 @@ namespace EnglishCourse_Core
 {
     public class bd_connection
     {
-        public static EnglishCoursesEntities1 connection = new EnglishCoursesEntities1();
+        public static EnglishCourseEntitiesDB connection = new EnglishCourseEntitiesDB();
     }
 }

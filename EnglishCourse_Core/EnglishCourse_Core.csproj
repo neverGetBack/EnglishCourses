@@ -67,61 +67,58 @@
   <ItemGroup>
     <Compile Include="AddToDB.cs" />
     <Compile Include="Authorization.cs">
-      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
+      <DependentUpon>ModelEnglish.tt</DependentUpon>
     </Compile>
     <Compile Include="bd_connection.cs" />
     <Compile Include="Course.cs">
-      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
+      <DependentUpon>ModelEnglish.tt</DependentUpon>
     </Compile>
     <Compile Include="DeleteFromDB.cs" />
-    <Compile Include="EnglishCourseDBModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EnglishCourseDBModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EnglishCourseDBModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EnglishCourseDBModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EnglishCourseDBModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="GetDataFromDB.cs" />
     <Compile Include="Lesson.cs">
-      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
+      <DependentUpon>ModelEnglish.tt</DependentUpon>
     </Compile>
     <Compile Include="MainFunc.cs" />
+    <Compile Include="ModelEnglish.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEnglish.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEnglish.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEnglish.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEnglish.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEnglish.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs">
-      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
+      <DependentUpon>ModelEnglish.tt</DependentUpon>
     </Compile>
     <Compile Include="Teacher.cs">
-      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
+      <DependentUpon>ModelEnglish.tt</DependentUpon>
     </Compile>
     <Compile Include="Theme.cs">
-      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
+      <DependentUpon>ModelEnglish.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
+      <DependentUpon>ModelEnglish.tt</DependentUpon>
     </Compile>
     <Compile Include="UserCourse.cs">
-      <DependentUpon>EnglishCourseDBModel.tt</DependentUpon>
+      <DependentUpon>ModelEnglish.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="EnglishCourseDBModel.edmx">
+    <EntityDeploy Include="ModelEnglish.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EnglishCourseDBModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelEnglish.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="EnglishCourseDBModel.edmx.diagram">
-      <DependentUpon>EnglishCourseDBModel.edmx</DependentUpon>
+    <None Include="ModelEnglish.edmx.diagram">
+      <DependentUpon>ModelEnglish.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -129,15 +126,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EnglishCourseDBModel.Context.tt">
+    <Content Include="ModelEnglish.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EnglishCourseDBModel.edmx</DependentUpon>
-      <LastGenOutput>EnglishCourseDBModel.Context.cs</LastGenOutput>
+      <DependentUpon>ModelEnglish.edmx</DependentUpon>
+      <LastGenOutput>ModelEnglish.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="EnglishCourseDBModel.tt">
+    <Content Include="ModelEnglish.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EnglishCourseDBModel.edmx</DependentUpon>
-      <LastGenOutput>EnglishCourseDBModel.cs</LastGenOutput>
+      <DependentUpon>ModelEnglish.edmx</DependentUpon>
+      <LastGenOutput>ModelEnglish.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

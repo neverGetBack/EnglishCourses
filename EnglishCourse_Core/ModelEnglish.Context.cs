@@ -13,10 +13,10 @@ namespace EnglishCourse_Core
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EnglishCoursesEntities1 : DbContext
+    public partial class EnglishCourseEntitiesDB : DbContext
     {
-        public EnglishCoursesEntities1()
-            : base("name=EnglishCoursesEntities1")
+        public EnglishCourseEntitiesDB()
+            : base("name=EnglishCourseEntitiesDB")
         {
         }
     
@@ -29,7 +29,6 @@ namespace EnglishCourse_Core
         public virtual DbSet<Course> Course { get; set; }
         public virtual DbSet<Lesson> Lesson { get; set; }
         public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Teacher> Teacher { get; set; }
         public virtual DbSet<Theme> Theme { get; set; }
         public virtual DbSet<User> User { get; set; }
