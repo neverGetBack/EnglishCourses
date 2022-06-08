@@ -48,7 +48,7 @@
                     FontSize="16"
                     Content="{materialDesign:PackIcon Magnify}"
                     ToolTip="Icon"
-                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" />
                 </StackPanel>
             </StackPanel>
 
