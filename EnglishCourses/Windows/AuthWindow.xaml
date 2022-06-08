@@ -62,7 +62,7 @@
                                     Margin="5, 0"
                                     Width="46"
                                     Style="{StaticResource MaterialDesignRaisedButton}"
-                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    ToolTip="Войти через Google"
                                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" >
                                     <materialDesign:PackIcon Kind="Google" />        
                                 </Button>
@@ -71,7 +71,7 @@
                                     Margin="5, 0"
                                     Width="46"
                                     Style="{StaticResource MaterialDesignRaisedButton}"
-                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    ToolTip="Войти через Facebook"
                                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand">
                                     <materialDesign:PackIcon Kind="Facebook" />
                                 </Button>
