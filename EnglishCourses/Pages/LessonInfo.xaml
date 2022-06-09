@@ -9,14 +9,29 @@
       TextElement.FontSize="13"
       TextOptions.TextFormattingMode="Ideal" 
       TextOptions.TextRenderingMode="Auto"        
-      Background="{DynamicResource MaterialDesignPaper}"
       FontFamily="{DynamicResource MaterialDesignFont}"
       xmlns:local="clr-namespace:EnglishCourses.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="LessonInfo">
+      d:DesignHeight="300" d:DesignWidth="450"
+      Title="LessonInfo"
+      Background="White">
 
-    <Grid Background="White">
-        <TextBlock x:Name="Name"/>
-    </Grid>
+    <ScrollViewer>
+        <Grid Background="White" Margin="30">
+            <StackPanel x:Name="MainStack" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <TextBlock Margin="0, 20, 0, 10" Text="123" Grid.Row="0" FontWeight="Bold" FontSize="24" x:Name="TitleTB"/>
+                <TextBlock x:Name="ThemeTB" Margin="0, 0, 0, 10" Text="123" FontSize="14" FontWeight="Light"/>
+                <TextBlock
+                x:Name="DiscrpTB"
+                Text="123"
+                Grid.Row="1"
+                TextWrapping="Wrap"
+                FontSize="14"
+                VerticalAlignment="Stretch"
+                MinWidth="280"
+                materialDesign:HintAssist.Hint="Multiline text"/>
+                <Image x:Name="LessonImg"  Source="{Binding Image}"/>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
 </Page>

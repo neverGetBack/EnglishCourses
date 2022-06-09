@@ -6,24 +6,25 @@
       xmlns:local="clr-namespace:EnglishCourses.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="LessonPage">
+      Title="LessonPage"
+      Background="White">
 
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="13*"/>
+            <RowDefinition Height="14*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <ListView x:Name="lessonsView" SelectionChanged="lessonsView_SelectionChanged">
+            <ListView x:Name="lessonsView" SelectionChanged="lessonsView_SelectionChanged" Padding="5">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <UniformGrid  HorizontalAlignment="Left"/>
+                        <UniformGrid Columns="20"  HorizontalAlignment="Left"/>
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Background="Gray" Width="25" Height="25">
+                        <Grid MouseDown="Grid_MouseDown" Background="Gray" Width="25" Height="25">
                             
                         </Grid>
                     </DataTemplate>

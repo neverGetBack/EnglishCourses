@@ -18,56 +18,54 @@
       ShowsNavigationUI="False">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="5*"/>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
 
-        <Grid Grid.Column="0" Margin="20, 30, 0, 0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="6*"/>
-            </Grid.RowDefinitions>
+        <Grid Grid.Row="0" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Row="0">
+            <Button
+                x:Name="BtnGoBack"
+                Click="GoBackBtn_Click"
+                Width="50"
+                Height="50"
+                Grid.Column="0"
+                FontSize="16"
+                Content="{materialDesign:PackIcon ArrowLeft}"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" />
+
+            <StackPanel Grid.Column="1">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBox x:Name="search_TB"
                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                         VerticalAlignment="Top"
-                        Width="250"
+                        Width="300"
                         Height="50"
                         AcceptsReturn="True"
                         TextWrapping="Wrap"
                         VerticalScrollBarVisibility="Auto"
                         materialDesign:HintAssist.Hint="Поиск по курсам"
                         IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}" TextChanged="search_TB_TextChanged" />
-                    
+
                     <Button
                     Height="50"
-                    Grid.Column="1"
                     FontSize="16"
                     Content="{materialDesign:PackIcon Magnify}"
-                    ToolTip="Icon"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" />
                 </StackPanel>
             </StackPanel>
-
-            <StackPanel Grid.Row="1" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                <materialDesign:Badged
-                  Badge="{materialDesign:PackIcon BackupRestore}"
-                  BadgeColorZoneMode="SecondaryMid">        
-                    <Button
-                        Width="100"
-                        Content="Назад"
-                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" />
-                </materialDesign:Badged>
-            </StackPanel>
         </Grid>
 
-        <ListView Grid.Column="1" x:Name="lv_course" SelectionChanged ="lv_course_SelectionChanged"  Background="Black">
+        <ListView Grid.Row="1" x:Name="lv_course" SelectionChanged ="lv_course_SelectionChanged"  Background="Black">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="2" HorizontalAlignment="Center"/>
+                    <UniformGrid Columns="3" HorizontalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
@@ -186,5 +184,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        
     </Grid>
 </Page>

@@ -59,7 +59,7 @@ namespace EnglishCourses.Pages
 
         private void GoBackBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.GoBack();
+            NavigationService.GoBack();
         }
 
         public void Filter()
@@ -74,6 +74,7 @@ namespace EnglishCourses.Pages
             lv_course.ItemsSource = filterCourses;
 
         }
+
         private void search_TB_TextChanged(object sender, TextChangedEventArgs e)
         {
             Filter();

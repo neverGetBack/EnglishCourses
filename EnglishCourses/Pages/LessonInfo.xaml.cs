@@ -1,6 +1,7 @@
 ﻿using EnglishCourse_Core;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,10 +22,31 @@ namespace EnglishCourses.Pages
     /// </summary>
     public partial class LessonInfo : Page
     {
+        private Lesson _lesson;
+
         public LessonInfo(Lesson lesson)
         {
             InitializeComponent();
-            Name.Text = lesson.Header;
+
+            this.DataContext = this;
+
+            TitleTB.Text = lesson.Header;
+            ThemeTB.Text = lesson.Theme.Name;
+            DiscrpTB.Text = lesson.Description;
+            LessonImg.Source = ByteToImage(lesson.Image);
+        }
+
+        public static ImageSource ByteToImage(byte[] imageData)
+        {
+            BitmapImage biImg = new BitmapImage();
+            MemoryStream ms = new MemoryStream(imageData);
+            biImg.BeginInit();
+            biImg.StreamSource = ms;
+            biImg.EndInit();
+
+            ImageSource imgSrc = biImg as ImageSource;
+
+            return imgSrc;
         }
     }
 }

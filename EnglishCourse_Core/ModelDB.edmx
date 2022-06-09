@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище EnglishCourseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище EnglishCourse123Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Authorization">
           <Key>
             <PropertyRef Name="id_Auth" />
@@ -185,7 +185,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище EnglishCourseModelContainer">
+        <EntityContainer Name="Хранилище EnglishCourse123ModelContainer">
           <EntitySet Name="Authorization" EntityType="Self.Authorization" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Lesson" EntityType="Self.Lesson" Schema="dbo" store:Type="Tables" />
@@ -231,7 +231,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="EnglishCourseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="EnglishCourse123Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Authorization">
           <Key>
             <PropertyRef Name="id_Auth" />
@@ -428,7 +428,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="EnglishCourseEntitiesDB" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EnglishCourse123Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Authorization" EntityType="Self.Authorization" />
           <EntitySet Name="Course" EntityType="Self.Course" />
           <EntitySet Name="Lesson" EntityType="Self.Lesson" />
@@ -475,9 +475,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище EnglishCourseModelContainer" CdmEntityContainer="EnglishCourseEntitiesDB">
+        <EntityContainerMapping StorageEntityContainer="Хранилище EnglishCourse123ModelContainer" CdmEntityContainer="EnglishCourse123Entities">
           <EntitySetMapping Name="Authorization">
-            <EntityTypeMapping TypeName="EnglishCourseModel.Authorization">
+            <EntityTypeMapping TypeName="EnglishCourse123Model.Authorization">
               <MappingFragment StoreEntitySet="Authorization">
                 <ScalarProperty Name="id_Auth" ColumnName="id_Auth" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
@@ -487,7 +487,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Course">
-            <EntityTypeMapping TypeName="EnglishCourseModel.Course">
+            <EntityTypeMapping TypeName="EnglishCourse123Model.Course">
               <MappingFragment StoreEntitySet="Course">
                 <ScalarProperty Name="id_Course" ColumnName="id_Course" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -499,7 +499,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Lesson">
-            <EntityTypeMapping TypeName="EnglishCourseModel.Lesson">
+            <EntityTypeMapping TypeName="EnglishCourse123Model.Lesson">
               <MappingFragment StoreEntitySet="Lesson">
                 <ScalarProperty Name="id_Lesson" ColumnName="id_Lesson" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
@@ -515,7 +515,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="EnglishCourseModel.Role">
+            <EntityTypeMapping TypeName="EnglishCourse123Model.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="id_Role" ColumnName="id_Role" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -523,7 +523,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Teacher">
-            <EntityTypeMapping TypeName="EnglishCourseModel.Teacher">
+            <EntityTypeMapping TypeName="EnglishCourse123Model.Teacher">
               <MappingFragment StoreEntitySet="Teacher">
                 <ScalarProperty Name="id_Teacher" ColumnName="id_Teacher" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -537,7 +537,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Theme">
-            <EntityTypeMapping TypeName="EnglishCourseModel.Theme">
+            <EntityTypeMapping TypeName="EnglishCourse123Model.Theme">
               <MappingFragment StoreEntitySet="Theme">
                 <ScalarProperty Name="id_Theme" ColumnName="id_Theme" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -545,7 +545,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="EnglishCourseModel.User">
+            <EntityTypeMapping TypeName="EnglishCourse123Model.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="id_User" ColumnName="id_User" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -558,7 +558,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserCourse">
-            <EntityTypeMapping TypeName="EnglishCourseModel.UserCourse">
+            <EntityTypeMapping TypeName="EnglishCourse123Model.UserCourse">
               <MappingFragment StoreEntitySet="UserCourse">
                 <ScalarProperty Name="id_UserCourse" ColumnName="id_UserCourse" />
                 <ScalarProperty Name="id_User" ColumnName="id_User" />

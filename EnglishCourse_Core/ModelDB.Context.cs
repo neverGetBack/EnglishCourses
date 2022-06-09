@@ -13,10 +13,10 @@ namespace EnglishCourse_Core
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EnglishCourseEntitiesDB : DbContext
+    public partial class EnglishCourse123Entities : DbContext
     {
-        public EnglishCourseEntitiesDB()
-            : base("name=EnglishCourseEntitiesDB")
+        public EnglishCourse123Entities()
+            : base("name=EnglishCourse123Entities")
         {
         }
     

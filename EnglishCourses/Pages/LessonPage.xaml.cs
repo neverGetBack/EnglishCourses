@@ -38,5 +38,11 @@ namespace EnglishCourses.Pages
                 navlessonFrame.NavigationService.Navigate(new LessonInfo(isSelected));
             }
         }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var item = sender as Grid;
+            item.Background = Brushes.LightGreen;
+        }
     }
 }
