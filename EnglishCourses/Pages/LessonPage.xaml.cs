@@ -25,7 +25,9 @@ namespace EnglishCourses.Pages
         public LessonPage(int idCourse)
         {
             InitializeComponent();
+
             lessons = GetDataFromDB.GetLesson().Where(p => p.id_Course == idCourse).ToList();
+            //NameTB.Text = 
             lessonsView.ItemsSource = lessons;
             this.DataContext = this;
         }
@@ -47,7 +49,7 @@ namespace EnglishCourses.Pages
 
         private void BtnGoBack_Click(object sender, RoutedEventArgs e)
         {
-            //NavigationService.Navigate(new CurseMainPage());
+            this.NavigationService.GoBack();
         }
     }
 }

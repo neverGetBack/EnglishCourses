@@ -30,7 +30,7 @@
                 VerticalAlignment="Stretch"
                 MinWidth="280"
                 materialDesign:HintAssist.Hint="Multiline text"/>
-                <Image x:Name="LessonImg"  Source="{Binding Image}"/>
+                <Image x:Name="LessonImg" Width="auto" Height="auto" Source="{Binding Image}"/>
             </StackPanel>
         </Grid>
     </ScrollViewer>
