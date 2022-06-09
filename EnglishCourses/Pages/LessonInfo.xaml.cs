@@ -29,11 +29,23 @@ namespace EnglishCourses.Pages
             InitializeComponent();
 
             this.DataContext = this;
+            if (lesson.Header != null)
+            {
+                TitleTB.Text = lesson.Header;
+            } 
+            if(lesson.id_Theme != null)
+            {
+                ThemeTB.Text = lesson.Theme.Name;
+            }
+            if(lesson.Description != null)
+            {
+                DiscrpTB.Text = lesson.Description;
+            }
+            if(lesson.Image != null)
+            {
+                LessonImg.Source = ByteToImage(lesson.Image);
+            }
 
-            TitleTB.Text = lesson.Header;
-            ThemeTB.Text = lesson.Theme.Name;
-            DiscrpTB.Text = lesson.Description;
-            LessonImg.Source = ByteToImage(lesson.Image);
         }
 
         public static ImageSource ByteToImage(byte[] imageData)

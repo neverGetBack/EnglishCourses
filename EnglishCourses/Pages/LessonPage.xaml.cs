@@ -44,5 +44,10 @@ namespace EnglishCourses.Pages
             var item = sender as Grid;
             item.Background = Brushes.LightGreen;
         }
+
+        private void BtnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            //NavigationService.Navigate(new CurseMainPage());
+        }
     }
 }

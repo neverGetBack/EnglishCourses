@@ -3,19 +3,24 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:EnglishCourses.Pages"
+      xmlns:local="clr-namespace:EnglishCourses.Pages" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="LessonPage"
       Background="White">
 
     <Grid Background="White">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="14*"/>
-        </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="137*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="1">
             <ListView x:Name="lessonsView" SelectionChanged="lessonsView_SelectionChanged" Padding="5">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -25,18 +30,27 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid MouseDown="Grid_MouseDown" Background="Gray" Width="25" Height="25">
-                            
+
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Grid.Column="1">
             <Frame x:Name="navlessonFrame">
-                
+
             </Frame>
         </Grid>
+        <Button
+                x:Name="BtnGoBack"
+                Click="BtnGoBack_Click"
+                Width="50"
+                Height="50"
+                Grid.Column="0"
+                FontSize="16"
+                Content="{materialDesign:PackIcon ArrowLeft}"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" />
     </Grid>
-        
+
 </Page>
