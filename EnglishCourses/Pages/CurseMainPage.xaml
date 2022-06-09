@@ -64,13 +64,16 @@
             </StackPanel>
         </Grid>
 
-        <ListView Grid.Column="1" x:Name="lv_course" SelectionChanged ="lv_course_SelectionChanged"  Background="Black">
+        <ListView materialDesign:RippleAssist.IsDisabled="True"
+                  materialDesign:RippleAssist.Feedback="Transparent"
+                  materialDesign:TransitionAssist.DisableTransitions="True"
+                  Grid.Column="1" x:Name="lv_course" SelectionChanged ="lv_course_SelectionChanged"  Background="Black">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="2" HorizontalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
-            <ListView.ItemTemplate>
+            <ListView.ItemTemplate >
                 <DataTemplate >
                     <Grid HorizontalAlignment="Center" >
                         <materialDesign:Card
