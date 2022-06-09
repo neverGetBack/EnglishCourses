@@ -30,6 +30,12 @@ namespace EnglishCourses
         }
         private void СourseBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (user != null)
+            {
+                CurseMainPage page = new CurseMainPage();
+                NavigationService.Navigate(page);
+                return;
+            }
             AuthWindow authWindow = new AuthWindow();
             authWindow.ShowDialog();
         }
